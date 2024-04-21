@@ -37,14 +37,14 @@ impl DatabaseSettings {
         };
         PgConnectOptions::new()
             .username(&self.username)
-            .password(&self.password.expose_secret())
+            .password(self.password.expose_secret())
             .host(&self.host)
             .port(self.port)
             .ssl_mode(ssl_mode)
     }
 
     pub fn with_db(&self) -> PgConnectOptions {
-        let mut options = self.without_db().database(&self.database_name);
+        let options = self.without_db().database(&self.database_name);
         options
             .clone()
             .log_statements(tracing_log::log::LevelFilter::Trace);
