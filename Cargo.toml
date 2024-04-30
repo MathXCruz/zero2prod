@@ -23,6 +23,8 @@ tracing-actix-web = "0.7"
 serde-aux = "4"
 unicode-segmentation = "1.11.0"
 validator = "0.16"
+wiremock = "0.6.0"
+serde_json = "1.0.116"
 
 [dependencies.sqlx]
 version = "0.7"
