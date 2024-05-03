@@ -28,7 +28,7 @@ async fn subscribe_persists_the_new_subscriber() {
         .mount(&app.email_server)
         .await;
 
-    let response = app.post_subscriptions(body.into()).await;
+    app.post_subscriptions(body.into()).await;
 
     let saved = sqlx::query!("SELECT email, name, status FROM subscriptions")
         .fetch_one(&app.db_pool)
