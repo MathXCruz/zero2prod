@@ -27,6 +27,8 @@ wiremock = "0.6.0"
 serde_json = "1.0.116"
 linkify = "0.10.0"
 rand = { version = "0.8", features=["std_rng"] }
+thiserror = "1"
+anyhow = "1"
 
 [dependencies.sqlx]
 version = "0.7"
