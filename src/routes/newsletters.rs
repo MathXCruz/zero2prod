@@ -10,22 +10,26 @@ use base64::Engine;
 use secrecy::Secret;
 use sqlx::PgPool;
 
+#[allow(dead_code)]
 #[derive(serde::Deserialize)]
 pub struct BodyData {
     title: String,
     content: Content,
 }
 
+#[allow(dead_code)]
 #[derive(serde::Deserialize)]
 pub struct Content {
     html: String,
     text: String,
 }
 
+#[allow(dead_code)]
 struct ConfirmedSubscriber {
     email: SubscriberEmail,
 }
 
+#[allow(dead_code)]
 #[derive(thiserror::Error)]
 pub enum PublishError {
     #[error("Authentication failed")]
@@ -132,6 +136,7 @@ pub async fn publish_newsletter(
     Ok(HttpResponse::Ok().finish())
 }
 
+#[allow(dead_code)]
 fn basic_authentication(headers: &HeaderMap) -> Result<Credentials, anyhow::Error> {
     let header_value = headers
         .get("Authorization")
